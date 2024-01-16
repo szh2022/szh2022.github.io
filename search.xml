@@ -6,6 +6,24 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2023/12/27/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>剑指Offer</title>
     <url>/2024/01/16/%E5%89%91%E6%8C%87Offer/</url>
     <content><![CDATA[<p>剑指Offer的刷题总结。最近LeetCode上下架了该合集，牛客上的合集也开始了收费。所幸各个题目还不收费，在此收集一下，并写一些题解以供复习。</p>
@@ -23,7 +41,6 @@
 <h3 id="法二："><a href="#法二：" class="headerlink" title="法二："></a>法二：</h3><p>不考虑每一列的顺序，只利用每一行的有序性，在每一行中都使用二分法。</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">hasFound</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp; array,<span class="type">int</span> target)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> start = <span class="number">0</span>,end = array.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(start &lt;= end)&#123;</span><br><span class="line">            <span class="type">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(array[mid] &lt; target) start = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(array[mid] &gt; target) end = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">Find</span><span class="params">(<span class="type">int</span> target, vector&lt;vector&lt;<span class="type">int</span>&gt; &gt;&amp; array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(array.<span class="built_in">size</span>() == <span class="number">0</span> || array[<span class="number">0</span>].<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i&lt;array.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">hasFound</span>(array[i],target)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<hr>
 <h1 id="2-替换空格"><a href="#2-替换空格" class="headerlink" title="2.替换空格"></a>2.替换空格</h1><p>​	<a href="https://www.nowcoder.com/practice/4060ac7e3e404ad1a894ef3e17650423?tpId=13&&tqId=11155&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">替换空格_牛客题霸_牛客网 (nowcoder.com)</a></p>
 <p>​	记得当时在Leetcode上做的时候参数是string，牛客是str，不过都一样。</p>
 <h3 id="法一：-1"><a href="#法一：-1" class="headerlink" title="法一："></a>法一：</h3><p>若参数是string的话还得resize一下，str的话可以直接写，但这样其实本身并不优雅。</p>
@@ -34,7 +51,6 @@
 <li>正则</li>
 <li>replace等</li>
 </ul>
-<hr>
 <h1 id="3-从尾到头打印链表"><a href="#3-从尾到头打印链表" class="headerlink" title="3.从尾到头打印链表"></a>3.从尾到头打印链表</h1><p><a href="https://www.nowcoder.com/practice/d0267f7f55b3412ba93bd35cfa8e8035?tpId=13&&tqId=11156&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking">从尾到头打印链表_牛客题霸_牛客网 (nowcoder.com)</a></p>
 <h3 id="法1："><a href="#法1：" class="headerlink" title="法1："></a>法1：</h3><p>从前往后保存，然后reverse一下就行了。</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">printListFromTailToHead</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">while</span>(cur)&#123;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(cur-&gt;val);</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>(),ans.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -841,24 +857,6 @@
 <li>注意<code>j * dp[i - j]</code>不能写成<code>dp[j]* dp[i - j]</code>。因为改完后貌似将<code>j</code>又进一步进行了拆分考虑的情况更完全了，但其在面对<code>j &gt; dp[j]</code>情况时得到的结果是比<code>j * dp[i - j]</code>小的就会忽略掉真正的最大乘积。</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">integerBreak</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">3</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>;j&lt;= i / <span class="number">2</span>;j++)&#123;</span><br><span class="line">                dp[i] = <span class="built_in">max</span>(dp[i],<span class="built_in">max</span>(j* (i - j),j * dp[i - j]));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/12/27/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
 </search>
